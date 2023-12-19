@@ -1,14 +1,18 @@
 from pytube import YouTube
 import re
+import os
 
 class VidDownloader(YouTube):
 	def __init__(self, link=None):
+		self.download_path = str(os.path.expanduser("~\Downloads"))
 		if link == None or "":
 			raise TypeError("Only links to youtube videos are allowed")
-		self.__link = link
-		self.ylink = YouTube(link)
-		for i  in  self.ylink.streams:
-			print(i)
+		try:
+			self.__link = link
+			self.ylink = YouTube(link)
+		except:
+			raise TypeError("Only links to youtube videos are allowed")
+
 
 	@property
 	def link(self):
@@ -23,19 +27,8 @@ class VidDownloader(YouTube):
 			raise TypeError("Wrong url passed")
 		
 	def vid(self, path=None):
-		self.ylink.streams.filter(progressive=True, file_extension="mp.4").order_by("resolution").desc.first().download()
+		print(self.download_path)
+		self.ylink.streams.filter(progressive=True, file_extension="mp4").order_by("resolution").desc().first().download(self.download_path)
 	
 	def only_audio(self, path=None):
-		self.ylink.streams.filter(mime_type="audio/mp4", type="audio").order_by("resolution").desc.first().download()
-
-	def vid_details(self):
-		title = self.ylink.title
-		author = self.ylink.author
-		length = self.ylink.length
-		return (title, author, length)
-
-
-test = VidDownloader("https://youtu.be/Rm2YVbN7Zsw?si=w5Krz0BkFw7JsJIU")
-print(test.link)
-test.link = "http://youtu.be/Rm2YVbN7Zsw?si=w5Krz0BkFw7JsJIU"
-print(test.link)
+		self.ylink.streams.filter(mime_type="audio/mp4", type="audio").order_by("resolution").desc().first().download(self.download_path)
