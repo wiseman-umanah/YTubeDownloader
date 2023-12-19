@@ -36,5 +36,4 @@ class VidDownloader(YouTube):
 			if quality == "low":
 				self.ylink.streams.filter(progressive=True, file_extension="mp4").order_by("resolution").desc().last().download(self.download_path)
 			else:
-				self.ylink.streams.filter(progressive=True, file_extension="mp4").order_by("resolution").desc().last().download(self.download_path)
-
+				self.ylink.streams.filter(progressive=True, file_extension="mp4").order_by("resolution").desc().first().download(self.download_path)
