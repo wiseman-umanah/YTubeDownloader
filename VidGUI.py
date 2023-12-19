@@ -45,7 +45,7 @@ entry.grid(row=1, column=1, rowspan=2, pady=(0, 30), padx=15)
 entry.bind("<Return>", get_input)
 
 download_button = tk.Button(root, text="Download", command=lambda: get_input("<Return>"), foreground="white", background="red")
-#download_button.grid(row=2, column=3)
+download_button.grid(row=2, column=2)
 
 video_option = tk.Radiobutton(root, text="Video", variable=download_option, value="Video")
 audio_option = tk.Radiobutton(root, text="Audio", variable=download_option, value="Audio")
