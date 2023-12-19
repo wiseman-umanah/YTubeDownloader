@@ -19,17 +19,17 @@ def get_input(event):
 
 		# Create a new label widget
 		get_input.write1 = ttk.Label(root, text=" ", font=("Helvetica", 10))
-		get_input.write1.grid(row=2, column=0, rowspan=2)
+		get_input.write1.grid(row=0, column=3, rowspan=2)
 		if download_option.get() == "Video":
 			test.vid()
 		elif download_option.get() == "Audio":
 			test.only_audio()
 		get_input.write1.config(text="Succesfully Downloaded!!!", font=("Helvetica", 10), foreground="green")
-		get_input.write1.grid(row=2, column=0, rowspan=2)
+		get_input.write1.grid(row=0, column=3, rowspan=2)
 	except Exception as e:
 		# Handle exceptions and display an error message
 		get_input.write1 = ttk.Label(root, text="Download Failed!!", foreground="red")
-		get_input.write1.grid(row=2, column=0, rowspan=2)
+		get_input.write1.grid(row=0, column=3, rowspan=2)
 
 download_option = tk.StringVar()
 download_option.set("Video")
