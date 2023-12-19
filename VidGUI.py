@@ -41,7 +41,7 @@ write = ttk.Label(root, text="Paste your youtube Link to Start Downloading", fon
 write.grid(row=0, column=1, rowspan=2, pady=(0, 50))
 
 entry = ttk.Entry(root, width=80)
-entry.grid(row=1, column=1, rowspan=2, pady=(0, 30))
+entry.grid(row=1, column=1, rowspan=2, pady=(0, 30), padx=15)
 entry.bind("<Return>", get_input)
 
 download_button = tk.Button(root, text="Download", command=lambda: get_input("<Return>"), foreground="white", background="red")
