@@ -39,7 +39,7 @@ quality_option.set("high")
 write = ttk.Label(root, text="Paste your youtube Link to Start Downloading", font=("Helvetica", 15), foreground="#066691", padding=10,  background="black")
 write.grid(row=0, column=0)
 
-entry = ttk.Entry(root, width=60)
+entry = ttk.Entry(root, width=60, background="black", foreground="white")
 entry.grid(row=1, column=0)
 entry.bind("<Return>", get_input)
 
