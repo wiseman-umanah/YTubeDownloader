@@ -6,6 +6,7 @@ root = tk.Tk()
 root.title("Youtube Downloader")
 root.geometry(newGeometry="430x180")
 root.resizable(False, False)
+root.configure(bg="black", fg="white")
 
 
 def get_input(event):
