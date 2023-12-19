@@ -54,6 +54,8 @@ vidType = tk.Label(root, text="Please select file type: ", foreground="white", b
 
 video_option.grid(row=0, column=0)
 audio_option.grid(row=0, column=1)
+video_option.configure(selectcolor="black")
+audio_option.configure(selectcolor="black")
 
 quality_frame = tk.Frame(root)
 quality_frame.grid(row=4, column=0, sticky="e", padx=(0, 114))
@@ -63,5 +65,8 @@ vidQual = tk.Label(root, text="Please select file quality: ", foreground="white"
 
 quality1.grid(row=0, column=0)
 quality2.grid(row=0, column=1)
+quality1.configure(selectcolor="black")
+quality2.configure(selectcolor="black")
+
 
 root.mainloop()
