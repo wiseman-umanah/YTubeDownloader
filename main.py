@@ -26,10 +26,9 @@ class VidDownloader(YouTube):
 		else:
 			raise TypeError("Wrong url passed")
 		
-	def vid(self):
-		print(self.download_path)
+	def vid(self, quality="high"):
 		self.ylink.streams.filter(progressive=True, file_extension="mp4").order_by("resolution").desc().first().download(self.download_path)
 	
-	def only_audio(self):
+	def only_audio(self, quality="low"):
 		self.ylink.streams.filter(mime_type="audio/mp4", type="audio").order_by("bitrate").desc().first().download(self.download_path)
 
