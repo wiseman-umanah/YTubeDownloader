@@ -45,6 +45,7 @@ entry.bind("<Return>", get_input)
 
 download_button = tk.Button(root, text="Download", command=lambda: get_input("<Return>"), foreground="white", background="red")
 download_button.grid(row=2, column=0, sticky="e", pady=5, padx=(0, 30))
+download_button.configure(borderwidth=5, relief="flat")
 
 video_frame = tk.Frame(root)
 video_frame.grid(row=3, column=0, sticky="e", padx=(0, 100))
