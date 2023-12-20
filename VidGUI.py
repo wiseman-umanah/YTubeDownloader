@@ -11,7 +11,7 @@ import sys
 #Initialization of GUI module and window formatting
 
 root = tk.Tk()
-icon_path ="app_icon.ico"
+icon_path ="assets\\app_icon.ico"
 root.iconbitmap(default=icon_path)
 root.title("Youtube Downloader")
 root.geometry(newGeometry="430x180")
