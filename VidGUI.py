@@ -22,8 +22,8 @@ def resource_path(relative_path):
 #Initialization of GUI module and window formatting
 
 root = tk.Tk()
-icon_path ="assets\\app_icon.ico"
-root.iconbitmap(default=icon_path)
+icon_path ="app_icon.ico"
+root.iconbitmap(default=resource_path(icon_path))
 root.title("Youtube Downloader")
 root.geometry(newGeometry="430x180")
 root.resizable(False, False)
