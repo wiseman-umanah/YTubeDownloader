@@ -4,12 +4,15 @@ This module handles all the GUI formats for end-user
 import tkinter as tk
 from tkinter import ttk
 from main import VidDownloader
+import os
+import sys
+
 
 #Initialization of GUI module and window formatting
 
 root = tk.Tk()
-iconPath = "app_icon.ico"
-root.wm_iconbitmap(iconPath)
+icon_path = "app_icon.ico"
+root.iconbitmap(default=icon_path)
 root.title("Youtube Downloader")
 root.geometry(newGeometry="430x180")
 root.resizable(False, False)
