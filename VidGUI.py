@@ -8,6 +8,8 @@ from main import VidDownloader
 #Initialization of GUI module and window formatting
 
 root = tk.Tk()
+iconPath = "app_icon.ico"
+root.wm_iconbitmap(iconPath)
 root.title("Youtube Downloader")
 root.geometry(newGeometry="430x180")
 root.resizable(False, False)
