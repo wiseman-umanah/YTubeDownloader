@@ -4,26 +4,11 @@ This module handles all the GUI formats for end-user
 import tkinter as tk
 from tkinter import ttk
 from main import VidDownloader
-import os
-import sys
-
-# To make image files in code linked to the program
-def resource_path(relative_path):
-    """ Get absolute path to resource, works for dev and for PyInstaller """
-    try:
-        # PyInstaller creates a temp folder and stores path in _MEIPASS
-        base_path = sys._MEIPASS
-    except Exception:
-        base_path = os.path.abspath(".")
-
-    return os.path.join(base_path, relative_path)
 
 
 #Initialization of GUI module and window formatting
 
 root = tk.Tk()
-icon_path ="app_icon.ico"
-root.iconbitmap(default=resource_path(icon_path))
 root.title("Youtube Downloader")
 root.geometry(newGeometry="430x180")
 root.resizable(False, False)
