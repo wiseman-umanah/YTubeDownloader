@@ -40,7 +40,7 @@ If you want to contribute to the development of the YouTube Downloader App, foll
 There are no bugs at the time of development, if found contact me 📩 wisemanumanah@gmail.com
 
 ## LICENSE
-This project is licensed under the (MIT License) [https://opensource.org/license/mit/].
+This project is licensed under the [MIT License](https://opensource.org/license/mit/).
 
 ## ACKNOWLEDGMENTS
 We would like to express our gratitude to the following individuals and projects that contributed to the development of the YouTube Downloader App:
