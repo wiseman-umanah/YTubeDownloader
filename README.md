@@ -9,7 +9,7 @@ The YouTube Downloader App is a simple yet powerful tool that allows users to do
 - Cross-Platform: Available for Windows
 
 ## INSTALLATION
-1.	Download the latest release from the Setup Folder.
+1.	Download the latest release from the [Releases](https://github.com/wiseman-umanah/YTubeDownloader/releases) Section.
 2.	Install the application on your system by running the installer
 ![Start installation of software](screenshots/install.png)
 3. 	Run the Application with Ease 😊
@@ -47,9 +47,11 @@ We would like to express our gratitude to the following individuals and projects
 
 pytube Library: Special thanks to the developers of the pytube library for providing a powerful and easy-to-use Python library for interacting with YouTube.
 
+GUI Library: I also appreciate the developers of the smooth GUI package to facilitate the development of this project.
+
 GitHub: Our code repository is hosted on GitHub. Thanks to GitHub for providing an excellent platform for version control.
 
-Open Source Community: We appreciate the entire open-source community for sharing knowledge, code, and inspiration. Together, we make great things happen.
+Open Source Community: I appreciate the entire open-source community for sharing knowledge, code, and inspiration. Together, we make great things happen.
 
 
 THANK YOU FOR USING MY APP 😊
