@@ -59,20 +59,31 @@ quality_option.set("high")
 
 ## Instruction to user
 Ins = "The YouTube Video Downloader"
-write = customtkinter.CTkLabel(root, text=Ins, font=customtkinter.CTkFont("Comic Sans MS", 15, "bold"), text_color="#00eeff", padx=10)
+write = customtkinter.CTkLabel(root, text=Ins, 
+							   font=customtkinter.CTkFont("Comic Sans MS", 15, "bold"), 
+							   text_color="#00eeff", 
+							   padx=10)
 write.grid(row=0, column=0)
 
 
 ## Input bar for user's input
 entry = customtkinter.CTkEntry(root, width=350)
-entry.configure(corner_radius=5, placeholder_text="Paste the youtube video URL", placeholder_text_color="grey", font=customFont)
+entry.configure(corner_radius=5, 
+				placeholder_text="Paste the youtube video URL", 
+				placeholder_text_color="grey", 
+				font=customFont)
 entry.grid(row=1, column=0, padx=15)
 entry.bind("<Return>", get_input)
 
 
 ## Format for Download Button
 download_button = customtkinter.CTkButton(root, text="Download", command=lambda: get_input("<Return>"))
-download_button.configure(text_color="white", fg_color="red", corner_radius=5, hover=True, width=80, hover_color="#ff5057", font=customFont)
+download_button.configure(text_color="white", 
+						  fg_color="red", 
+						  corner_radius=5, 
+						  hover=True, width=80, 
+						  hover_color="#ff5057", 
+						  font=customFont)
 download_button.grid(row=2, column=0, sticky="e", pady=5, padx=(0, 15))
 
 
@@ -87,8 +98,14 @@ vidType = customtkinter.CTkLabel(root, text=vidText, text_color="white", font=cu
 ## Positioning download options
 ## Styling
 vidType.grid(row=3, column=0, sticky="w", padx=(5, 0))
-video_option.configure(radiobutton_width=10, radiobutton_height=10, fg_color="#00eeff", font=customFont)
-audio_option.configure(radiobutton_width=10, radiobutton_height=10, fg_color="#00eeff", font=customFont)
+video_option.configure(radiobutton_width=10, 
+					   radiobutton_height=10, 
+					   fg_color="#00eeff", 
+					   font=customFont)
+audio_option.configure(radiobutton_width=10, 
+					   radiobutton_height=10, 
+					   fg_color="#00eeff", 
+					   font=customFont)
 video_option.grid(row=0, column=0)
 audio_option.grid(row=0, column=1)
 
@@ -104,8 +121,14 @@ vidQual = customtkinter.CTkLabel(root, text=qualText, text_color="white", font=c
 ## Positioning download quality options
 ## Styling
 vidQual.grid(row=4, column=0, sticky="w", padx=(5, 0))
-quality1.configure(radiobutton_width=10, radiobutton_height=10, fg_color="#00eeff", font=customFont)
-quality2.configure(radiobutton_width=10, radiobutton_height=10, fg_color="#00eeff", font=customFont)
+quality1.configure(radiobutton_width=10, 
+				   radiobutton_height=10, 
+				   fg_color="#00eeff", 
+				   font=customFont)
+quality2.configure(radiobutton_width=10, 
+				   radiobutton_height=10, 
+				   fg_color="#00eeff", 
+				   font=customFont)
 quality1.grid(row=0, column=0)
 quality2.grid(row=0, column=1)
 
