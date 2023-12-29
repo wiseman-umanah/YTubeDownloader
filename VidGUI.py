@@ -2,12 +2,10 @@
 This module handles all the GUI formats for end-user
 """
 import customtkinter
+from tkinter import *
 from main import VidDownloader
 
-
 #Initialization of GUI module and window formatting
-
-customtkinter.set_appearance_mode("system")
 customtkinter.set_default_color_theme("blue")
 
 root = customtkinter.CTk()
@@ -15,6 +13,43 @@ root.title("Youtube Downloader")
 root.geometry("380x180+400+200")
 root.resizable(False, False)
 
+def change_theme(theme):
+	"""
+	Function to Switch between Light and dark mode
+	
+	theme (str): This is the theme passed as a parameter
+	
+	By default code uses system mode as default value for theme
+	"""
+	if theme == "light":
+		customtkinter.set_appearance_mode("light")
+		write.configure(text_color="#3f48cc")
+		vidType.configure(text_color="black")
+		video_option.configure(text_color="black", fg_color="#3f48cc")
+		audio_option.configure(text_color="black", fg_color="#3f48cc")
+		quality1.configure(text_color="black", fg_color="#3f48cc")
+		quality2.configure(text_color="black", fg_color="#3f48cc")
+		vidQual.configure(text_color="black")
+	elif theme == "dark":
+		customtkinter.set_appearance_mode("dark")
+		write.configure(text_color="#00eeff")
+		vidType.configure(text_color="white")
+		video_option.configure(text_color="white", fg_color="#00eeff")
+		audio_option.configure(text_color="white", fg_color="#00eeff")
+		quality1.configure(text_color="white", fg_color="#00eeff")
+		quality2.configure(text_color="white", fg_color="#00eeff")
+		vidQual.configure(text_color="white")
+
+# Create Menu Bar for Options from User
+my_menu = Menu(root)
+root.config(menu=my_menu)
+
+theme_menu = Menu(my_menu, tearoff=0)
+my_menu.add_cascade(label="Themes", menu=theme_menu)
+theme_menu.add_command(label="Light", command=lambda: change_theme("light"))
+theme_menu.add_command(label="Dark", command=lambda: change_theme("dark"))
+
+#Font formatting
 customFont = ("Comic Sans MS", 12, "bold")
 #Handle user input, somewhat like a link to the backend of the program
 #Handle responds and error messages
