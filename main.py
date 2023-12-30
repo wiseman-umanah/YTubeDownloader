@@ -2,6 +2,7 @@
 This Module is the backbone of the youtube video/audio downloader
 """
 from pytube import YouTube
+from moviepy import *
 import re
 import os
 
@@ -52,7 +53,7 @@ class VidDownloader(YouTube):
 		else:
 			raise TypeError("Wrong url passed")
 		
-	def download_audVid(self, quality="high", type="Video"):
+	def download_audVid(self, type="Video", pixel="720p"):
 		"""The function to download the audio/video from youtube
 		
 		Parameters:
@@ -61,12 +62,11 @@ class VidDownloader(YouTube):
 			type (str): The type of media whether Video or Audio
 		"""
 		if type == "Audio":
-			if quality == "low":
-				self.ylink.streams.filter(mime_type="audio/mp4", type="audio").order_by("bitrate").desc().last().download(self.download_path)
-			else:
-				self.ylink.streams.filter(mime_type="audio/mp4", type="audio").order_by("bitrate").desc().first().download(self.download_path)
+			self.ylink.streams.get_audio_only().download(filename=f"video_{self.ylink.video_id}.mp3", output_path=self.download_path)
 		elif type == "Video":
-			if quality == "low":
-				self.ylink.streams.filter(progressive=True, file_extension="mp4").order_by("resolution").desc().last().download(self.download_path)
+			p = self.ylink.streams.filter(progressive=True, file_extension="mp4", res=pixel)
+			if p != []:
+				p.first().download(self.download_path)
 			else:
-				self.ylink.streams.filter(progressive=True, file_extension="mp4").order_by("resolution").desc().first().download(self.download_path)
+				self.ylink.streams.filter(progressive=True, file_extension="mp4").desc().first().download(self.download_path)
+			

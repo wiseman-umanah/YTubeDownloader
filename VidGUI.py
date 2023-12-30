@@ -73,16 +73,16 @@ def get_input(event):
 	download_status.grid(row=2, column=0, padx=(5, 0), sticky="w")
 	progress_bar = customtkinter.CTkProgressBar(download_status)
 	progress_bar.grid(row=1, column=0)
-	progress_bar.start()
+
 	try:
 		test = VidDownloader(user_input)
 
 		# Create a new label widget
-		test.download_audVid(quality_option.get(), download_option.get())
+		test.download_audVid(download_option.get(), quality(optionmenu_var.get()))
 		get_input.write1= customtkinter.CTkLabel(download_status, text=good, font=customFont, text_color="green")
 		get_input.write1.grid(row=0, column=0, sticky="w")
 		progress_bar.configure(mode="determinate", progress_color="green")
-		progress_bar.set(1)
+		progress_bar.set(1)	
 		progress_bar.stop()
 	except Exception as e:
 		# Handle exceptions and display an error message
@@ -178,7 +178,7 @@ vidQual.grid(row=4, column=0, sticky="w", padx=(5, 0))
 # quality1.grid(row=0, column=0)
 # quality2.grid(row=0, column=1)
 def quality(choice):
-	print(choice)
+	return (choice)
 
 optionmenu_var = customtkinter.StringVar(value="720p")
 optionmenu = customtkinter.CTkOptionMenu(quality_frame,values=["720p", "480p", "360p", "240p"],
