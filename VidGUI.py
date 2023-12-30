@@ -27,8 +27,8 @@ def change_theme(theme):
 		vidType.configure(text_color="black")
 		video_option.configure(text_color="black", fg_color="#3f48cc")
 		audio_option.configure(text_color="black", fg_color="#3f48cc")
-		quality1.configure(text_color="black", fg_color="#3f48cc")
-		quality2.configure(text_color="black", fg_color="#3f48cc")
+		# quality1.configure(text_color="black", fg_color="#3f48cc")
+		# quality2.configure(text_color="black", fg_color="#3f48cc")
 		vidQual.configure(text_color="black")
 	elif theme == "dark":
 		customtkinter.set_appearance_mode("dark")
@@ -36,8 +36,8 @@ def change_theme(theme):
 		vidType.configure(text_color="white")
 		video_option.configure(text_color="white", fg_color="#00eeff")
 		audio_option.configure(text_color="white", fg_color="#00eeff")
-		quality1.configure(text_color="white", fg_color="#00eeff")
-		quality2.configure(text_color="white", fg_color="#00eeff")
+		# quality1.configure(text_color="white", fg_color="#00eeff")
+		# quality2.configure(text_color="white", fg_color="#00eeff")
 		vidQual.configure(text_color="white")
 
 # Create Menu Bar for Options from User
