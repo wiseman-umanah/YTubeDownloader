@@ -27,8 +27,8 @@ def change_theme(theme):
 		vidType.configure(text_color="black")
 		video_option.configure(text_color="black", fg_color="#3f48cc")
 		audio_option.configure(text_color="black", fg_color="#3f48cc")
-		quality1.configure(text_color="black", fg_color="#3f48cc")
-		quality2.configure(text_color="black", fg_color="#3f48cc")
+		# quality1.configure(text_color="black", fg_color="#3f48cc")
+		# quality2.configure(text_color="black", fg_color="#3f48cc")
 		vidQual.configure(text_color="black")
 	elif theme == "dark":
 		customtkinter.set_appearance_mode("dark")
@@ -36,8 +36,8 @@ def change_theme(theme):
 		vidType.configure(text_color="white")
 		video_option.configure(text_color="white", fg_color="#00eeff")
 		audio_option.configure(text_color="white", fg_color="#00eeff")
-		quality1.configure(text_color="white", fg_color="#00eeff")
-		quality2.configure(text_color="white", fg_color="#00eeff")
+		# quality1.configure(text_color="white", fg_color="#00eeff")
+		# quality2.configure(text_color="white", fg_color="#00eeff")
 		vidQual.configure(text_color="white")
 
 # Create Menu Bar for Options from User
@@ -69,17 +69,28 @@ def get_input(event):
 	if hasattr(get_input, 'write1') and get_input.write1.winfo_exists():
 		get_input.write1.destroy()
 	
+	download_status = customtkinter.CTkFrame(root, fg_color="transparent")
+	download_status.grid(row=2, column=0, padx=(5, 0), sticky="w")
+	progress_bar = customtkinter.CTkProgressBar(download_status)
+	progress_bar.grid(row=1, column=0)
+
 	try:
 		test = VidDownloader(user_input)
 
 		# Create a new label widget
-		test.download_audVid(quality_option.get(), download_option.get())
-		get_input.write1= customtkinter.CTkLabel(root, text=good, font=customFont, text_color="green")
-		get_input.write1.grid(row=2, column=0, padx=(5, 0), sticky="w")
+		test.download_audVid(download_option.get(), quality(optionmenu_var.get()))
+		get_input.write1= customtkinter.CTkLabel(download_status, text=good, font=customFont, text_color="green")
+		get_input.write1.grid(row=0, column=0, sticky="w")
+		progress_bar.configure(mode="determinate", progress_color="green")
+		progress_bar.set(1)	
+		progress_bar.stop()
 	except Exception as e:
 		# Handle exceptions and display an error message
-		get_input.write1 = customtkinter.CTkLabel(root, text=bad, font=customFont, text_color="red")
-		get_input.write1.grid(row=2, column=0, padx=(5, 0), sticky="w")
+		get_input.write1 = customtkinter.CTkLabel(download_status, text=bad, font=customFont, text_color="red")
+		get_input.write1.grid(row=0, column=0, sticky="w")
+		progress_bar.configure(mode="determinate", progress_color="red")
+		progress_bar.set(0)
+		progress_bar.stop()
 
 
 ## Gets download option and sets default option
@@ -148,25 +159,31 @@ audio_option.grid(row=0, column=1)
 ## Format for download quality options
 qualText = "Please select file quality:\t"
 quality_frame = customtkinter.CTkFrame(root, fg_color="transparent")
-quality_frame.grid(row=4, column=0, sticky="e")
-quality1 = customtkinter.CTkRadioButton(quality_frame, text="High", variable=quality_option, value="high", text_color="white")
-quality2 = customtkinter.CTkRadioButton(quality_frame, text="Low", variable=quality_option, value="low", text_color="white")
+quality_frame.grid(row=4, column=0, padx=(0, 130), sticky="e")
+# quality1 = customtkinter.CTkRadioButton(quality_frame, text="High", variable=quality_option, value="high", text_color="white")
+# quality2 = customtkinter.CTkRadioButton(quality_frame, text="Low", variable=quality_option, value="low", text_color="white")
 vidQual = customtkinter.CTkLabel(root, text=qualText, text_color="white", font=customFont)
 
 ## Positioning download quality options
 ## Styling
 vidQual.grid(row=4, column=0, sticky="w", padx=(5, 0))
-quality1.configure(radiobutton_width=10, 
-				   radiobutton_height=10, 
-				   fg_color="#00eeff", 
-				   font=customFont)
-quality2.configure(radiobutton_width=10, 
-				   radiobutton_height=10, 
-				   fg_color="#00eeff", 
-				   font=customFont)
-quality1.grid(row=0, column=0)
-quality2.grid(row=0, column=1)
+# quality1.configure(radiobutton_width=10, 
+# 				   radiobutton_height=10, 
+# 				   fg_color="#00eeff", 
+# 				   font=customFont)
+# quality2.configure(radiobutton_width=10, 
+# 				   radiobutton_height=10, 
+# 				   fg_color="#00eeff", 
+# 				   font=customFont)
+# quality1.grid(row=0, column=0)
+# quality2.grid(row=0, column=1)
+def quality(choice):
+	return (choice)
 
-
-
+optionmenu_var = customtkinter.StringVar(value="720p")
+optionmenu = customtkinter.CTkOptionMenu(quality_frame,values=["720p", "480p", "360p", "240p"],
+                                         command=quality,
+                                         variable=optionmenu_var)
+optionmenu.configure(width=20, font=customFont, button_color="red", fg_color="red", button_hover_color="#ff5057")
+optionmenu.grid(row=0, column=0, sticky="w")
 root.mainloop()
