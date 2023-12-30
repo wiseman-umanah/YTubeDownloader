@@ -5,13 +5,14 @@ The YouTube Downloader App is a simple yet powerful tool that allows users to do
 
 ## FEATURES
 - Download Options: Easily Download Youtube Videos and Extract Audio with just a few Clicks
-- Quality Options: Choose your video quality
+- Quality Options: Choose your video quality from a wide range of options
+- Themes: Select your preferred theme acording to your preference
 - Cross-Platform: Available for Windows
 
 ## INSTALLATION
 1.	Download the latest release from the [Releases](https://github.com/wiseman-umanah/YTubeDownloader/releases) Section.
 2.	Install the application on your system by running the installer
-![Start installation of software](screenshots/install.png)
+![Start installation of app](screenshots/install.png)
 3. 	Run the Application with Ease 😊
 
 ## USAGE
@@ -22,10 +23,11 @@ The YouTube Downloader App is a simple yet powerful tool that allows users to do
 5.	Click the "Download" button to start the download, Video/Audio will be Downloaded to your `\Downloads` directory 
 
 ## SCREENSHOTS
-![Launch app](screenshots/launch.png)
+![DarkMode](screenshots/darkmode.png)
+![LightMode](screenshots/lightmode.png)
 ![insert](screenshots/insert.png)
-![succes](screenshots/success.png)
-![downloads](screenshots/downloads.png)
+![success](screenshots/success.png)
+![Downloads](screenshots/downloads.png)
 
 ## DEVELOPMENTS
 If you want to contribute to the development of the YouTube Downloader App, follow these steps:
