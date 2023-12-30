@@ -159,25 +159,31 @@ audio_option.grid(row=0, column=1)
 ## Format for download quality options
 qualText = "Please select file quality:\t"
 quality_frame = customtkinter.CTkFrame(root, fg_color="transparent")
-quality_frame.grid(row=4, column=0, sticky="e")
-quality1 = customtkinter.CTkRadioButton(quality_frame, text="High", variable=quality_option, value="high", text_color="white")
-quality2 = customtkinter.CTkRadioButton(quality_frame, text="Low", variable=quality_option, value="low", text_color="white")
+quality_frame.grid(row=4, column=0, padx=(0, 130), sticky="e")
+# quality1 = customtkinter.CTkRadioButton(quality_frame, text="High", variable=quality_option, value="high", text_color="white")
+# quality2 = customtkinter.CTkRadioButton(quality_frame, text="Low", variable=quality_option, value="low", text_color="white")
 vidQual = customtkinter.CTkLabel(root, text=qualText, text_color="white", font=customFont)
 
 ## Positioning download quality options
 ## Styling
 vidQual.grid(row=4, column=0, sticky="w", padx=(5, 0))
-quality1.configure(radiobutton_width=10, 
-				   radiobutton_height=10, 
-				   fg_color="#00eeff", 
-				   font=customFont)
-quality2.configure(radiobutton_width=10, 
-				   radiobutton_height=10, 
-				   fg_color="#00eeff", 
-				   font=customFont)
-quality1.grid(row=0, column=0)
-quality2.grid(row=0, column=1)
+# quality1.configure(radiobutton_width=10, 
+# 				   radiobutton_height=10, 
+# 				   fg_color="#00eeff", 
+# 				   font=customFont)
+# quality2.configure(radiobutton_width=10, 
+# 				   radiobutton_height=10, 
+# 				   fg_color="#00eeff", 
+# 				   font=customFont)
+# quality1.grid(row=0, column=0)
+# quality2.grid(row=0, column=1)
+def quality(choice):
+	print(choice)
 
-
-
+optionmenu_var = customtkinter.StringVar(value="720p")
+optionmenu = customtkinter.CTkOptionMenu(quality_frame,values=["720p", "480p", "360p", "240p"],
+                                         command=quality,
+                                         variable=optionmenu_var)
+optionmenu.configure(width=20, font=customFont, button_color="red", fg_color="red", button_hover_color="#ff5057")
+optionmenu.grid(row=0, column=0, sticky="w")
 root.mainloop()
